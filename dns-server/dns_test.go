@@ -276,7 +276,6 @@ func TestHandleDNS(t *testing.T) {
 		mockDnsWriter := &mockDnsRespWriter{}
 		dnsServer.handleDNS(mockDnsWriter, dnsMsg)
 		assert.NotEqual(t, nil, mockDnsWriter.rspMsg, errorInResponse)
-		// assert.Equal(t, "www.example.com.\t30\tIN\tA\t179.138.147.240", mockDnsWriter.rspMsg.Answer[0].String(), errorInResponse)
 		assert.Contains(t, mockDnsWriter.rspMsg.Answer[0].String(), testDomainServer, errorInResponse)
 	})
 

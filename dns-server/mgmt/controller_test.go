@@ -38,33 +38,33 @@ var url = "/mep/dns_server_mgmt/v1/rrecord"
 var cont = "Content-Type"
 var appj = "application/json"
 var eg = "www.example.com."
-var eg172 = "www.example.com.\t30\tIN\tA\t172.168.15.100"
+var eg172 = "www.example.com.\t30\tIN\tA\t192.168.1.100"
 var errRecord = "Error in deleting the record"
 var eg1 = "www.example1.com."
-var eg1_49 = "www.example1.com.\t30\tIN\tA\t172.168.15.49"
+var eg1_49 = "www.example1.com.\t30\tIN\tA\t192.168.1.49"
 var egAbc = "www.example.abc."
 var eg1Abc = "www.example1.abc."
 var mepA = "/mep/dns_server_mgmt/v1/rrecord/www.example.abc./A"
 var egE1 = "[{\"zone\":\".\",\"rr\":[{\"name\":\"www.example.com.\",\"type\":\"A\",\"class\":\"IN\","
-var egE2 = "\"ttl\":30,\"rData\":[\"172.168.15.100\"]},{\"name\":\"www.example1.com.\",\"type\":\"A\","
-var egE3 = "\"class\":\"IN\",\"ttl\":30,\"rData\":[\"172.168.15.49\",\"172.168.15.50\",\"172.168.15.51\"]}]}]"
+var egE2 = "\"ttl\":30,\"rData\":[\"192.168.1.100\"]},{\"name\":\"www.example1.com.\",\"type\":\"A\","
+var egE3 = "\"class\":\"IN\",\"ttl\":30,\"rData\":[\"192.168.1.49\",\"192.168.1.50\",\"192.168.1.51\"]}]}]"
 
-var rr_entry = "{\"name\": \"www.example.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"172.168.15.100\"]}"
-var rr_entry1 = "{\"name\": \"www.example1.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"172.168.15.101\"]}"
-var rr_entry2 = "{\"name\": \"www.example.org.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"172.168.15.102\"]}"
-var rr_entrySet = "{\"name\": \"www.example.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 32,\"rData\": [\"172.168.15.100\", \"152.168.15.102\"]}"
-var rr_eg100 = "www.example.com.\t30\tIN\tA\t172.168.15.100"
-var rr_eg101 = "www.example1.com.\t30\tIN\tA\t172.168.15.101"
-var rr_eg102 = "www.example.org.\t30\tIN\tA\t172.168.15.102"
+var rr_entry = "{\"name\": \"www.example.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"192.168.1.100\"]}"
+var rr_entry1 = "{\"name\": \"www.example1.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"192.168.1.101\"]}"
+var rr_entry2 = "{\"name\": \"www.example.org.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"192.168.1.102\"]}"
+var rr_entrySet = "{\"name\": \"www.example.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 32,\"rData\": [\"192.168.1.100\", \"192.168.1.102\"]}"
+var rr_eg100 = "www.example.com.\t30\tIN\tA\t192.168.1.100"
+var rr_eg101 = "www.example1.com.\t30\tIN\tA\t192.168.1.101"
+var rr_eg102 = "www.example.org.\t30\tIN\tA\t192.168.1.102"
 var invalidZone = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
 	"1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
 	"1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
-var rr_entry_invalid = "{\"name\": \"www.example.c" + invalidZone + "om.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"172.168.15.100\"]}"
+var rr_entry_invalid = "{\"name\": \"www.example.c" + invalidZone + "om.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"192.168.1.100\"]}"
 var egOrg = "www.example.org."
 var rr_invalidIP = "{\"name\": \"www.e.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"255.255.255.255\"]}"
-var rr_invalidrrtype = "{\"name\": \"www.e.com.\",\"type\": \"AAB\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"172.168.15.100\"]}"
-var rr_invalidTTL = "{\"name\": \"www.e.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 0,\"rData\": [\"172.168.15.1005\"]}"
-var rr_setinvalidrrtype = "{\"name\": \"www.example.com.\",\"type\": \"AAB\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"172.168.15.100\"]}"
+var rr_invalidrrtype = "{\"name\": \"www.e.com.\",\"type\": \"AAB\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"192.168.1.100\"]}"
+var rr_invalidTTL = "{\"name\": \"www.e.com.\",\"type\": \"A\",\"class\": \"IN\",\"ttl\": 0,\"rData\": [\"192.168.1.1005\"]}"
+var rr_setinvalidrrtype = "{\"name\": \"www.example.com.\",\"type\": \"AAB\",\"class\": \"IN\",\"ttl\": 30,\"rData\": [\"192.168.1.100\"]}"
 
 func TestRestControllerOperations(t *testing.T) {
 	defer func() {
@@ -184,12 +184,12 @@ func TestRestControllerOperations(t *testing.T) {
 
 		rrResponse, _ := store.GetResourceRecord(&dns.Question{Name: eg,
 			Qtype: dns.TypeA, Qclass: dns.ClassINET})
-		assert.Equal(t, "www.example.com.\t30\tIN\tA\t172.168.15.100", (*rrResponse)[0].String(),
+		assert.Equal(t, "www.example.com.\t30\tIN\tA\t192.168.1.100", (*rrResponse)[0].String(),
 			"Error")
 
 		rrResponse, _ = store.GetResourceRecord(&dns.Question{Name: eg1,
 			Qtype: dns.TypeA, Qclass: dns.ClassINET})
-		assert.Equal(t, "www.example1.com.\t30\tIN\tA\t172.168.15.101", (*rrResponse)[0].String(),
+		assert.Equal(t, "www.example1.com.\t30\tIN\tA\t192.168.1.101", (*rrResponse)[0].String(),
 			"Error")
 
 		// zone name given as record
@@ -238,7 +238,7 @@ func TestRestControllerOperations(t *testing.T) {
 
 		rrResponse, _ = store.GetResourceRecord(&dns.Question{Name: eg,
 			Qtype: dns.TypeA, Qclass: dns.ClassINET})
-		assert.Equal(t, "www.example.com.\t30\tIN\tA\t172.168.15.100", (*rrResponse)[0].String(),
+		assert.Equal(t, "www.example.com.\t30\tIN\tA\t192.168.1.100", (*rrResponse)[0].String(),
 			"Error")
 
 		// zone name given as record
@@ -394,9 +394,9 @@ func TestRestControllerOperations(t *testing.T) {
 		assert.Equal(t, nil, err, "Error")
 		rrResponse, _ = store.GetResourceRecord(&dns.Question{Name: eg,
 			Qtype: dns.TypeA, Qclass: dns.ClassINET})
-		assert.Equal(t, "www.example.com.\t32\tIN\tA\t172.168.15.100", (*rrResponse)[0].String(),
+		assert.Equal(t, "www.example.com.\t32\tIN\tA\t192.168.1.100", (*rrResponse)[0].String(),
 			"Error")
-		assert.Equal(t, "www.example.com.\t32\tIN\tA\t152.168.15.102", (*rrResponse)[1].String(),
+		assert.Equal(t, "www.example.com.\t32\tIN\tA\t192.168.1.102", (*rrResponse)[1].String(),
 			"Error")
 		err = store.DelResourceRecord("", eg, "A")
 		assert.Equal(t, nil, err, errRecord)

@@ -75,7 +75,7 @@ func (e *Controller) handleAddResourceRecords(c echo.Context) error {
 	//	"class": "IN",
 	//	"ttl": 30,
 	//	"rData": [
-	//      "172.168.15.101"
+	//      "192.168.1.101"
 	//     ]
 	//}
 
@@ -123,7 +123,7 @@ func (e *Controller) handleSetResourceRecords(c echo.Context) error {
 	//	"class": "IN",
 	//	"ttl": 30,
 	//	"rData": [
-	//      "172.168.15.101"
+	//      "192.168.1.101"
 	//     ]
 	//}
 	zone := c.QueryParam("zone")
@@ -180,7 +180,7 @@ func (e *Controller) validateSetRecordInput(zone string, rr *datastore.ResourceR
 	//	"class": "IN",
 	//	"ttl": 30,
 	//	"rData": [
-	//      "172.168.15.101"
+	//      "192.168.1.101"
 	//     ]
 	//}
 
